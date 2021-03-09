@@ -3,8 +3,8 @@ part of '../flutter_advanced_avatar.dart';
 /// Common positioned widget wrapper.
 class CornerBox extends StatelessWidget {
   CornerBox({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.offset = Offset.zero,
   }) : super(key: key);
 
@@ -12,7 +12,7 @@ class CornerBox extends StatelessWidget {
   final Offset offset;
 
   /// Child widget.
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {

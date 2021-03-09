@@ -3,7 +3,7 @@ part of '../flutter_advanced_avatar.dart';
 /// Advanced Avatar widget.
 class AdvancedAvatar extends StatelessWidget {
   AdvancedAvatar({
-    Key key,
+    Key? key,
     this.name,
     this.size = 80.0,
     this.image,
@@ -22,22 +22,22 @@ class AdvancedAvatar extends StatelessWidget {
   }) : super(key: key);
 
   /// Used for creating initials. (Regex split by r'\s+\/')
-  final String name;
+  final String? name;
 
   /// Avatar size (width = height).
   final double size;
 
   /// Avatar image source exclusively with [child].
-  final ImageProvider<dynamic> image;
+  final ImageProvider<Object>? image;
 
   /// Avatar margin.
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? margin;
 
   /// Initials text style.
-  final TextStyle style;
+  final TextStyle? style;
 
   /// Status color.
-  final Color statusColor;
+  final Color? statusColor;
 
   /// Status size.
   final double statusSize;
@@ -46,25 +46,25 @@ class AdvancedAvatar extends StatelessWidget {
   final double statusAngle;
 
   /// Avatar decoration.
-  final BoxDecoration decoration;
+  final BoxDecoration? decoration;
 
   /// Avatar foreground decoration.
-  final BoxDecoration foregroundDecoration;
+  final BoxDecoration? foregroundDecoration;
 
   /// Child widget exclusively with [image].
-  final Widget child;
+  final Widget? child;
 
   /// Top-left hosted widget.
-  final Widget topLeft;
+  final Widget? topLeft;
 
   /// Top-right hosted widget.
-  final Widget topRight;
+  final Widget? topRight;
 
   /// Bottom-left hosted widget.
-  final Widget bottomLeft;
+  final Widget? bottomLeft;
 
   /// Bottom-right hosted widget.
-  final Widget bottomRight;
+  final Widget? bottomRight;
 
   @override
   Widget build(BuildContext context) {
@@ -93,10 +93,10 @@ class AdvancedAvatar extends StatelessWidget {
                   color: theme.colorScheme.onBackground,
                 ).merge(style),
                 child: child != null
-                    ? child
+                    ? child!
                     : image != null
                         ? Image(
-                            image: image,
+                            image: image!,
                             fit: BoxFit.cover,
                             errorBuilder: (context, error, stackTrace) {
                               return Text(name.toAbbreviation());
