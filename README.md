@@ -2,14 +2,26 @@
 
 An advanced avatar provides a rich API for widget customization that opens a new look and feel in your app.
 
-## Getting Started
+## Advanced Avatar Theme LAF
+| Advanced Avatar Light Theme | Advanced Avatar Dark Theme |
+|:-:|:-:|
+| ![Advanced Drawer Open State](./PREVIEW_LIGHT.png) | ![Advanced Drawer Closed State](./PREVIEW_DARK.png) |
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
+## AdvancedDrawer Parameters
+|Parameter|Description|Type|Default|
+|:--------|:----------|:---|:------|
+|`name`| Used for creating initials. (Regex split by r'\s+\/')|*String*||
+|`size`| Avatar size (width = height).|*double*|80.0|
+|`image`| Avatar image source exclusively with [child].|*ImageProvider*||
+|`margin`| Avatar margin.|*EdgeInsetsGeometry*||
+|`style`| Initials text style.|*TextStyle*||
+|`statusColor`| Status color.|*Color*||
+|`statusSize`| Status size.|*double*|12.0|
+|`statusAngle`| Status angle.|*double*|135.0|
+|`decoration`| Avatar decoration.|*BoxDecoration*|color, shape|
+|`foregroundDecoration`| Avatar foreground decoration.|*BoxDecoration*||
+|`child`| Child widget exclusively with [image].|*Widget*||
+|`topLeft`| Top-left hosted widget.|*Widget*||
+|`topRight`| Top-right hosted widget.|*Widget*||
+|`bottomLeft`| Bottom-left hosted widget.|*Widget*||
+|`bottomRight`| Bottom-right hosted widget.|*Widget*||

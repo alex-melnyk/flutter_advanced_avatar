@@ -14,12 +14,123 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Advanced Avatar Example'),
         ),
         body: Center(
-          child: AdvancedAvatar(),
+          child: GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: 3,
+            children: [
+              AdvancedAvatar(
+                name: 'John Doe',
+                statusColor: Colors.red,
+              ),
+              AdvancedAvatar(
+                name: 'Smith Corey',
+                statusColor: Colors.green,
+                statusAngle: 45,
+              ),
+              AdvancedAvatar(
+                child: Icon(
+                  Icons.account_circle,
+                  color: Colors.white,
+                  size: 40,
+                ),
+              ),
+              AdvancedAvatar(
+                name: 'John Doe',
+                statusColor: Colors.red,
+                size: 40,
+              ),
+              AdvancedAvatar(
+                name: 'Smith Corey',
+                statusColor: Colors.green,
+                statusAngle: 45,
+                size: 80,
+              ),
+              AdvancedAvatar(
+                child: Icon(
+                  Icons.account_circle,
+                  color: Colors.white,
+                  size: 40,
+                ),
+                size: 120,
+              ),
+              AdvancedAvatar(
+                child: Text('CMYK'),
+                topLeft: Container(
+                  width: 16.0,
+                  height: 16.0,
+                  color: Colors.cyan,
+                ),
+                topRight: Container(
+                  width: 16.0,
+                  height: 16.0,
+                  color: Colors.pinkAccent,
+                ),
+                bottomLeft: Container(
+                  width: 16.0,
+                  height: 16.0,
+                  color: Colors.yellow,
+                ),
+                bottomRight: Container(
+                  width: 16.0,
+                  height: 16.0,
+                  color: Colors.black,
+                ),
+              ),
+              AdvancedAvatar(
+                statusColor: Colors.deepOrange,
+                image: AssetImage('assets/images/avatar.jpg'),
+                foregroundDecoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.deepOrange.withOpacity(0.75),
+                    width: 5.0,
+                  ),
+                ),
+              ),
+              AdvancedAvatar(
+                statusSize: 16,
+                statusColor: Colors.green,
+                image: AssetImage('assets/images/avatar.jpg'),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black54,
+                      blurRadius: 16.0,
+                    ),
+                  ],
+                ),
+                topRight: Container(
+                  width: 20,
+                  height: 20,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 0.5,
+                    ),
+                    color: Colors.red,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Text(
+                    '12',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
