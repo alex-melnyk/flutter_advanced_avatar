@@ -5,7 +5,7 @@ An advanced avatar provides a rich API for widget customization that opens a new
 ## Advanced Avatar Theme LAF
 | Advanced Avatar Light Theme | Advanced Avatar Dark Theme |
 |:-:|:-:|
-| ![Advanced Drawer Open State](./PREVIEW_LIGHT.png) | ![Advanced Drawer Closed State](./PREVIEW_DARK.png) |
+| ![PREVIEW_LIGHT](./PREVIEW_LIGHT.png) | ![PREVIEW_DARK](./PREVIEW_DARK.png) |
 
 ## AdvancedDrawer Parameters
 |Parameter|Description|Type|Default|
