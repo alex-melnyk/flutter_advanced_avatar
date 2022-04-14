@@ -1,3 +1,7 @@
+## 1.1.0
+
+* Corner properties replaced with children.
+
 ## 1.0.0+1
 
 * LICENSE CHANGED.

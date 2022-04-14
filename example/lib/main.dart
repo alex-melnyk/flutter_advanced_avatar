@@ -62,26 +62,40 @@ class _MyAppState extends State<MyApp> {
               ),
               AdvancedAvatar(
                 child: Text('CMYK'),
-                topLeft: Container(
-                  width: 16.0,
-                  height: 16.0,
-                  color: Colors.cyan,
-                ),
-                topRight: Container(
-                  width: 16.0,
-                  height: 16.0,
-                  color: Colors.pinkAccent,
-                ),
-                bottomLeft: Container(
-                  width: 16.0,
-                  height: 16.0,
-                  color: Colors.yellow,
-                ),
-                bottomRight: Container(
-                  width: 16.0,
-                  height: 16.0,
-                  color: Colors.black,
-                ),
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Container(
+                      width: 16.0,
+                      height: 16.0,
+                      color: Colors.cyan,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      width: 16.0,
+                      height: 16.0,
+                      color: Colors.pinkAccent,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Container(
+                      width: 16.0,
+                      height: 16.0,
+                      color: Colors.yellow,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Container(
+                      width: 16.0,
+                      height: 16.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
               ),
               AdvancedAvatar(
                 statusColor: Colors.deepOrange,
@@ -107,27 +121,32 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ],
                 ),
-                topRight: Container(
-                  width: 20,
-                  height: 20,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 0.5,
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      width: 20,
+                      height: 20,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 0.5,
+                        ),
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Text(
+                        '12',
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
-                    color: Colors.red,
-                    shape: BoxShape.circle,
                   ),
-                  child: Text(
-                    '12',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                ],
               ),
             ],
           ),

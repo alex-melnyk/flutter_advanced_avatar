@@ -1,10 +1,10 @@
-part of '../flutter_advanced_avatar.dart';
-
 /// String utility extension.
 extension StringUtils on String? {
   /// Returns a string abbreviation.
   String toAbbreviation() {
-    if (this == null) return '';
+    if (this == null) {
+      return '';
+    }
 
     final nameParts = this!.trim().toUpperCase().split(RegExp(r'[\s\/]+'));
 

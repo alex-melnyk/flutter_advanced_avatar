@@ -1,8 +1,8 @@
-part of '../flutter_advanced_avatar.dart';
+import 'package:flutter/widgets.dart';
 
 /// Common positioned widget wrapper.
 class CornerBox extends StatelessWidget {
-  CornerBox({
+  const CornerBox({
     Key? key,
     required this.child,
     this.offset = Offset.zero,
