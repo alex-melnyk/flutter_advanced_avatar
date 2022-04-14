@@ -2,6 +2,8 @@
 
 An advanced avatar provides a rich API for widget customization that opens a new look and feel in your app.
 
+![APP_ICON](./APP_ICON.png)
+
 ## Advanced Avatar Theme LAF
 | Advanced Avatar Light Theme | Advanced Avatar Dark Theme |
 |:-:|:-:|
@@ -21,7 +23,4 @@ An advanced avatar provides a rich API for widget customization that opens a new
 |`decoration`| Avatar decoration.|*BoxDecoration*|color, shape|
 |`foregroundDecoration`| Avatar foreground decoration.|*BoxDecoration*||
 |`child`| Child widget exclusively with [image].|*Widget*||
-|`topLeft`| Top-left hosted widget.|*Widget*||
-|`topRight`| Top-right hosted widget.|*Widget*||
-|`bottomLeft`| Bottom-left hosted widget.|*Widget*||
-|`bottomRight`| Bottom-right hosted widget.|*Widget*||
+|`children`| Hosted widgets.|*Widget*||

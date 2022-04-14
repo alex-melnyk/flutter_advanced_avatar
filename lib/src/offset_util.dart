@@ -1,4 +1,7 @@
-part of '../flutter_advanced_avatar.dart';
+import 'dart:math';
+import 'dart:ui';
+
+import 'package:flutter/widgets.dart';
 
 /// Offset utility extension.
 extension OffsetUtils on Offset {

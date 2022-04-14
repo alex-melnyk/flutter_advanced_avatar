@@ -1,8 +1,12 @@
-part of '../flutter_advanced_avatar.dart';
+import 'package:flutter/widgets.dart';
+
+import 'corner_box.dart';
+import 'offset_util.dart';
+import 'string_util.dart';
 
 /// Advanced Avatar widget.
 class AdvancedAvatar extends StatelessWidget {
-  AdvancedAvatar({
+  const AdvancedAvatar({
     Key? key,
     this.name,
     this.size = 80.0,
@@ -15,10 +19,7 @@ class AdvancedAvatar extends StatelessWidget {
     this.decoration,
     this.foregroundDecoration,
     this.child,
-    this.topLeft,
-    this.topRight,
-    this.bottomLeft,
-    this.bottomRight,
+    this.children = const <Widget>[],
   }) : super(key: key);
 
   /// Used for creating initials. (Regex split by r'\s+\/')
@@ -54,22 +55,11 @@ class AdvancedAvatar extends StatelessWidget {
   /// Child widget exclusively with [image].
   final Widget? child;
 
-  /// Top-left hosted widget.
-  final Widget? topLeft;
-
-  /// Top-right hosted widget.
-  final Widget? topRight;
-
-  /// Bottom-left hosted widget.
-  final Widget? bottomLeft;
-
-  /// Bottom-right hosted widget.
-  final Widget? bottomRight;
+  /// Children widgets.
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return UnconstrainedBox(
       child: Container(
         width: size,
@@ -82,7 +72,7 @@ class AdvancedAvatar extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               decoration: decoration ??
                   BoxDecoration(
-                    color: theme.backgroundColor,
+                    color: Color.fromRGBO(0, 0, 0, 1),
                     shape: BoxShape.circle,
                   ),
               foregroundDecoration: foregroundDecoration,
@@ -90,7 +80,6 @@ class AdvancedAvatar extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
-                  color: theme.colorScheme.onBackground,
                 ).merge(style),
                 child: child != null
                     ? child!
@@ -118,44 +107,13 @@ class AdvancedAvatar extends StatelessWidget {
                     color: statusColor,
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: Colors.white,
-                      width: theme.dividerTheme.thickness ?? 0.5,
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      width: 0.5,
                     ),
                   ),
                 ),
               ),
-            if (topLeft != null)
-              CornerBox(
-                offset: OffsetUtils.angleToOffset(
-                  315.0,
-                  radius: size / 2,
-                ),
-                child: topLeft,
-              ),
-            if (topRight != null)
-              CornerBox(
-                offset: OffsetUtils.angleToOffset(
-                  45.0,
-                  radius: size / 2,
-                ),
-                child: topRight,
-              ),
-            if (bottomLeft != null)
-              CornerBox(
-                offset: OffsetUtils.angleToOffset(
-                  135.0,
-                  radius: size / 2,
-                ),
-                child: bottomLeft,
-              ),
-            if (bottomRight != null)
-              CornerBox(
-                offset: OffsetUtils.angleToOffset(
-                  225,
-                  radius: size / 2,
-                ),
-                child: bottomRight,
-              ),
+            for (final child in children) child,
           ],
         ),
       ),
