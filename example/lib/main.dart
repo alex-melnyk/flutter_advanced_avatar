@@ -14,8 +14,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: ThemeData.light(useMaterial3: true),
+      darkTheme: ThemeData.dark(useMaterial3: true),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Advanced Avatar Example'),
@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
               AdvancedAvatar(
                 name: 'Smith Corey',
                 statusColor: Colors.green,
-                statusAngle: 45,
+                statusAlignment: Alignment.topRight,
               ),
               AdvancedAvatar(
                 child: Icon(
@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
               AdvancedAvatar(
                 name: 'Smith Corey',
                 statusColor: Colors.green,
-                statusAngle: 45,
+                statusAlignment: Alignment.topRight,
                 size: 80,
               ),
               AdvancedAvatar(
@@ -59,6 +59,30 @@ class _MyAppState extends State<MyApp> {
                   size: 40,
                 ),
                 size: 120,
+                children: [
+                  AlignCircular(
+                    alignment: Alignment.topLeft,
+                    size: Size.square(32),
+                    child: GestureDetector(
+                      onTap: () => print('Close Tap'),
+                      child: Container(
+                        width: 32,
+                        height: 32,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.red,
+                        ),
+                        foregroundDecoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.fromBorderSide(
+                            Divider.createBorderSide(context),
+                          ),
+                        ),
+                        child: Icon(Icons.close),
+                      ),
+                    ),
+                  )
+                ],
               ),
               AdvancedAvatar(
                 child: Text('CMYK'),
@@ -122,7 +146,7 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
                 children: [
-                  Align(
+                  AlignCircular(
                     alignment: Alignment.topRight,
                     child: Container(
                       width: 20,
