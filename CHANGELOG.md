@@ -1,3 +1,8 @@
+## 1.2.0
+
+* AlignCircular widget implemented to align children on circle.
+* Gesture detection support added.
+ 
 ## 1.1.0
 
 * Corner properties replaced with children.

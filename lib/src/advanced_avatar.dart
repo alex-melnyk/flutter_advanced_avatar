@@ -1,8 +1,10 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_advanced_avatar/flutter_advanced_avatar.dart';
 
-import 'corner_box.dart';
-import 'offset_util.dart';
-import 'string_util.dart';
+import 'align_circular.dart';
+import 'string_extension.dart';
+
+part 'advanced_avatar_inherited.dart';
 
 /// Advanced Avatar widget.
 class AdvancedAvatar extends StatelessWidget {
@@ -15,7 +17,7 @@ class AdvancedAvatar extends StatelessWidget {
     this.style,
     this.statusColor,
     this.statusSize = 12.0,
-    this.statusAngle = 135.0,
+    this.statusAlignment = Alignment.bottomRight,
     this.decoration,
     this.foregroundDecoration,
     this.child,
@@ -44,7 +46,7 @@ class AdvancedAvatar extends StatelessWidget {
   final double statusSize;
 
   /// Status angle.
-  final double statusAngle;
+  final Alignment statusAlignment;
 
   /// Avatar decoration.
   final BoxDecoration? decoration;
@@ -61,60 +63,60 @@ class AdvancedAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return UnconstrainedBox(
-      child: Container(
-        width: size,
-        height: size,
-        margin: margin,
-        child: Stack(
-          children: [
-            Container(
-              alignment: Alignment.center,
-              clipBehavior: Clip.antiAlias,
-              decoration: decoration ??
-                  BoxDecoration(
-                    color: Color.fromRGBO(0, 0, 0, 1),
-                    shape: BoxShape.circle,
-                  ),
-              foregroundDecoration: foregroundDecoration,
-              child: DefaultTextStyle(
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ).merge(style),
-                child: child != null
-                    ? child!
-                    : image != null
-                        ? Image(
-                            image: image!,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return Text(name.toAbbreviation());
-                            },
-                          )
-                        : Text(name.toAbbreviation()),
-              ),
-            ),
-            if (statusColor != null)
-              CornerBox(
-                offset: OffsetUtils.angleToOffset(
-                  statusAngle,
-                  radius: size / 2,
+      child: AdvancedAvatarInherited(
+        radius: size / 2.0,
+        child: Container(
+          width: size,
+          height: size,
+          margin: margin,
+          child: Stack(
+            children: [
+              Container(
+                alignment: Alignment.center,
+                clipBehavior: Clip.antiAlias,
+                decoration: decoration ??
+                    BoxDecoration(
+                      color: Color.fromRGBO(0, 0, 0, 1),
+                      shape: BoxShape.circle,
+                    ),
+                foregroundDecoration: foregroundDecoration,
+                child: DefaultTextStyle(
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ).merge(style),
+                  child: child != null
+                      ? child!
+                      : image != null
+                          ? Image(
+                              image: image!,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Text(name.toAbbreviation());
+                              },
+                            )
+                          : Text(name.toAbbreviation()),
                 ),
-                child: Container(
-                  width: statusSize,
-                  height: statusSize,
-                  decoration: BoxDecoration(
-                    color: statusColor,
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Color.fromRGBO(255, 255, 255, 1),
-                      width: 0.5,
+              ),
+              if (statusColor != null)
+                AlignCircular(
+                  alignment: statusAlignment,
+                  child: Container(
+                    width: statusSize,
+                    height: statusSize,
+                    decoration: BoxDecoration(
+                      color: statusColor,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        width: 0.5,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            for (final child in children) child,
-          ],
+              for (final child in children) child,
+            ],
+          ),
         ),
       ),
     );
