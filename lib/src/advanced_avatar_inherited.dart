@@ -15,7 +15,7 @@ class AdvancedAvatarInherited extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(AdvancedAvatarInherited old) {
-    return true;
+  bool updateShouldNotify(AdvancedAvatarInherited oldWidget) {
+    return oldWidget.radius != radius;
   }
 }

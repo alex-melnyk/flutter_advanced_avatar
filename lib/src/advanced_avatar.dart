@@ -75,13 +75,13 @@ class AdvancedAvatar extends StatelessWidget {
                 alignment: Alignment.center,
                 clipBehavior: Clip.antiAlias,
                 decoration: decoration ??
-                    BoxDecoration(
+                    const BoxDecoration(
                       color: Color.fromRGBO(0, 0, 0, 1),
                       shape: BoxShape.circle,
                     ),
                 foregroundDecoration: foregroundDecoration,
                 child: DefaultTextStyle(
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                   ).merge(style),
@@ -108,7 +108,7 @@ class AdvancedAvatar extends StatelessWidget {
                       color: statusColor,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Color.fromRGBO(255, 255, 255, 1),
+                        color: const Color.fromRGBO(255, 255, 255, 1),
                         width: 0.5,
                       ),
                     ),
