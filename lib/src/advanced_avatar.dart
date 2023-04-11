@@ -83,6 +83,8 @@ class AdvancedAvatar extends StatelessWidget {
               ? Text(name.toAbbreviation())
               : Image(
                   image: image!,
+                  width: size,
+                  height: size,
                   fit: BoxFit.cover,
                   errorBuilder: (_, __, ___) => Text(name.toAbbreviation()),
                 )
