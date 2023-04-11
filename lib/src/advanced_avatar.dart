@@ -18,10 +18,15 @@ class AdvancedAvatar extends StatelessWidget {
     this.statusColor,
     this.statusSize = 12.0,
     this.statusAlignment = Alignment.bottomRight,
-    this.decoration,
+    this.decoration = const BoxDecoration(
+      shape: BoxShape.circle,
+      color: Color.fromRGBO(0, 0, 0, 1),
+    ),
     this.foregroundDecoration,
     this.child,
     this.children = const <Widget>[],
+    this.animated = false,
+    this.duration = const Duration(milliseconds: 300),
   }) : super(key: key);
 
   /// Used for creating initials. (Regex split by r'\s+\/')
@@ -49,7 +54,7 @@ class AdvancedAvatar extends StatelessWidget {
   final Alignment statusAlignment;
 
   /// Avatar decoration.
-  final BoxDecoration? decoration;
+  final BoxDecoration decoration;
 
   /// Avatar foreground decoration.
   final BoxDecoration? foregroundDecoration;
@@ -60,8 +65,30 @@ class AdvancedAvatar extends StatelessWidget {
   /// Children widgets.
   final List<Widget> children;
 
+  /// Use AnimatedContainer.
+  final bool animated;
+
+  /// AnimatedContainer duration.
+  final Duration duration;
+
   @override
   Widget build(BuildContext context) {
+    final sourceChild = DefaultTextStyle(
+      style: const TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.w500,
+      ).merge(style),
+      child: child == null
+          ? image == null
+              ? Text(name.toAbbreviation())
+              : Image(
+                  image: image!,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => Text(name.toAbbreviation()),
+                )
+          : child!,
+    );
+
     return UnconstrainedBox(
       child: AdvancedAvatarInherited(
         radius: size / 2.0,
@@ -71,33 +98,23 @@ class AdvancedAvatar extends StatelessWidget {
           margin: margin,
           child: Stack(
             children: [
-              Container(
-                alignment: Alignment.center,
-                clipBehavior: Clip.antiAlias,
-                decoration: decoration ??
-                    const BoxDecoration(
-                      color: Color.fromRGBO(0, 0, 0, 1),
-                      shape: BoxShape.circle,
-                    ),
-                foregroundDecoration: foregroundDecoration,
-                child: DefaultTextStyle(
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ).merge(style),
-                  child: child != null
-                      ? child!
-                      : image != null
-                          ? Image(
-                              image: image!,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Text(name.toAbbreviation());
-                              },
-                            )
-                          : Text(name.toAbbreviation()),
+              if (animated)
+                AnimatedContainer(
+                  duration: duration,
+                  alignment: Alignment.center,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: decoration,
+                  foregroundDecoration: foregroundDecoration,
+                  child: sourceChild,
+                )
+              else
+                Container(
+                  alignment: Alignment.center,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: decoration,
+                  foregroundDecoration: foregroundDecoration,
+                  child: sourceChild,
                 ),
-              ),
               if (statusColor != null)
                 AlignCircular(
                   alignment: statusAlignment,
