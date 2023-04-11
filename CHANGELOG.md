@@ -1,3 +1,7 @@
+## 1.3.1
+
+* Set image size according to the container size.
+
 ## 1.3.0
 
 * AnimatedContainer support added.
