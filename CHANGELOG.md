@@ -1,3 +1,7 @@
+## 1.3.0
+
+* AnimatedContainer support added.
+
 ## 1.2.0
 
 * AlignCircular widget implemented to align children on circle.
