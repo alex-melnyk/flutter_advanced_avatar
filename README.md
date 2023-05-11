@@ -26,3 +26,4 @@ An advanced avatar provides a rich API for widget customization that opens a new
 | `children`             | Hosted widgets.                                       | *Widget*             ||
 | `animated`             | Use AnimatedContainer                                 | *bool*               | false                       |
 | `duration`             | AnimatedContainer duration                            | *Duration*           | Duration(milliseconds: 300) |
+| `autoTextSize`         | Auto name text size                                   | *bool*               | false                       |

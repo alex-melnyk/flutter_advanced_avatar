@@ -1,3 +1,8 @@
+## 1.4.0
+
+* Fix abbreviation algorithm.
+* autoTextSize property added.
+
 ## 1.3.1
 
 * Set image size according to the container size.
