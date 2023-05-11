@@ -6,12 +6,15 @@ import 'string_extension.dart';
 
 part 'advanced_avatar_inherited.dart';
 
+const _defaultAvatarSize = 40.0;
+const _defaultAbbreviationFontSize = 15.0;
+
 /// Advanced Avatar widget.
 class AdvancedAvatar extends StatelessWidget {
   const AdvancedAvatar({
     Key? key,
     this.name,
-    this.size = 80.0,
+    this.size = _defaultAvatarSize,
     this.image,
     this.margin,
     this.style,
@@ -27,6 +30,7 @@ class AdvancedAvatar extends StatelessWidget {
     this.children = const <Widget>[],
     this.animated = false,
     this.duration = const Duration(milliseconds: 300),
+    this.autoTextSize = false,
   }) : super(key: key);
 
   /// Used for creating initials. (Regex split by r'\s+\/')
@@ -71,24 +75,34 @@ class AdvancedAvatar extends StatelessWidget {
   /// AnimatedContainer duration.
   final Duration duration;
 
+  /// Whether the [name] text should dynamically changes according to [size].
+  final bool autoTextSize;
+
   @override
   Widget build(BuildContext context) {
+    final dynamicTextSize =
+        _defaultAbbreviationFontSize * (size / _defaultAvatarSize);
+    final textStyle = const TextStyle(
+      fontSize: 18.0,
+      fontWeight: FontWeight.w500,
+    ).merge(style);
+
     final sourceChild = DefaultTextStyle(
-      style: const TextStyle(
-        fontSize: 18.0,
-        fontWeight: FontWeight.w500,
-      ).merge(style),
-      child: child == null
-          ? image == null
+      style: autoTextSize
+          ? textStyle.copyWith(fontSize: dynamicTextSize)
+          : textStyle,
+      child: image == null
+          ? child == null
               ? Text(name.toAbbreviation())
-              : Image(
-                  image: image!,
-                  width: size,
-                  height: size,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => Text(name.toAbbreviation()),
-                )
-          : child!,
+              : child!
+          : Image(
+              image: image!,
+              width: size,
+              height: size,
+              fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) =>
+                  child ?? Text(name.toAbbreviation()),
+            ),
     );
 
     return UnconstrainedBox(
