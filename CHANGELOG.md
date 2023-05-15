@@ -1,3 +1,8 @@
+## 1.5.0
+
+* Two letters abbreviation algorithm added.
+* Minimum SDK version changed to 2.17.0.
+
 ## 1.4.0
 
 * Fix abbreviation algorithm.
