@@ -23,8 +23,8 @@ extension StringExtension on String? {
       return nameParts.first.characters.first + nameParts[1].characters.first;
     }
 
-    return nameParts.first.length > 1
-        ? nameParts.first.characters.first
-        : nameParts.first;
+    return nameParts.first.characters.length > 1
+        ? nameParts.first.characters.take(2).string
+        : nameParts.first.characters.first;
   }
 }
