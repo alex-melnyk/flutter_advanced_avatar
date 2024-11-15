@@ -1,3 +1,7 @@
+## 1.5.1
+
+* Fix `displayName` splitting with emojis by [@MrLightful](https://github.com/MrLightful).
+
 ## 1.5.0
 
 * Two letters abbreviation algorithm added.

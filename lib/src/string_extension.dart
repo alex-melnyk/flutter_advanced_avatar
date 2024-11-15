@@ -1,3 +1,5 @@
+import 'package:characters/characters.dart';
+
 enum AvatarMinLength {
   one,
   two;
@@ -18,11 +20,11 @@ extension StringExtension on String? {
     final nameParts = this!.trim.call().toUpperCase().split(RegExp(r'[\s/]+'));
 
     if (nameParts.length > 1) {
-      return nameParts.first.substring(0, 1) + nameParts[1].substring(0, 1);
+      return nameParts.first.characters.first + nameParts[1].characters.first;
     }
 
-    return nameParts.first.length > 1
-        ? nameParts.first.substring(0, 2)
-        : nameParts.first;
+    return nameParts.first.characters.length > 1
+        ? nameParts.first.characters.take(2).string
+        : nameParts.first.characters.first;
   }
 }
