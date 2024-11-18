@@ -8,6 +8,7 @@ on:
 jobs:
   publish:
     permissions:
+      pull-requests: write
       id-token: write # Required for authentication using OIDC
     uses: dart-lang/ecosystem/.github/workflows/publish.yaml@main
     with:
