@@ -13,11 +13,12 @@ enum AvatarMinLength {
 extension StringExtension on String? {
   /// Returns a string abbreviation.
   String toAbbreviation([AvatarMinLength minLength = AvatarMinLength.one]) {
-    if (this == null) {
+    final trimmed = this?.trim();
+    if (trimmed == null || trimmed.isEmpty) {
       return '';
     }
 
-    final nameParts = this!.trim.call().toUpperCase().split(RegExp(r'[\s/]+'));
+    final nameParts = trimmed.toUpperCase().split(RegExp(r'[\s/]+'));
 
     if (nameParts.length > 1) {
       return nameParts.first.characters.first + nameParts[1].characters.first;
