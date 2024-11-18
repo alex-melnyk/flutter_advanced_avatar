@@ -1,3 +1,8 @@
+## 1.5.2
+
+* Increase safety on splitting empty `name` strings to abbreviation by [@MrLightful](https://github.com/MrLightful).
+* Bump `flutter_lints` to major v5.0.0 & fix analysis issues by [@MrLightful](https://github.com/MrLightful).
+
 ## 1.5.1
 
 * Fix `name` splitting with emojis by [@MrLightful](https://github.com/MrLightful).
