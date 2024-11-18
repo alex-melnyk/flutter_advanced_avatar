@@ -4,12 +4,12 @@ import 'package:flutter_advanced_avatar/flutter_advanced_avatar.dart';
 /// Common positioned widget wrapper.
 class AlignCircular extends StatelessWidget {
   const AlignCircular({
-    Key? key,
+    super.key,
     required this.child,
     this.alignment = Alignment.center,
     this.radius = 0.0,
     this.size = Size.zero,
-  }) : super(key: key);
+  });
 
   /// The [child] alignment.
   final Alignment alignment;

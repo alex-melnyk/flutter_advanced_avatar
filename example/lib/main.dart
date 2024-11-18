@@ -6,8 +6,10 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -64,7 +66,7 @@ class _MyAppState extends State<MyApp> {
                     alignment: Alignment.topLeft,
                     size: Size.square(32),
                     child: GestureDetector(
-                      onTap: () => print('Close Tap'),
+                      onTap: () => debugPrint('Close Tap'),
                       child: Container(
                         width: 32,
                         height: 32,
@@ -81,7 +83,7 @@ class _MyAppState extends State<MyApp> {
                         child: Icon(Icons.close),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
               AdvancedAvatar(
