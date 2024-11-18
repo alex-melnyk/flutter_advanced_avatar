@@ -12,7 +12,7 @@ const _defaultAbbreviationFontSize = 15.0;
 /// Advanced Avatar widget.
 class AdvancedAvatar extends StatelessWidget {
   const AdvancedAvatar({
-    Key? key,
+    super.key,
     this.name,
     this.size = _defaultAvatarSize,
     this.image,
@@ -31,7 +31,7 @@ class AdvancedAvatar extends StatelessWidget {
     this.animated = false,
     this.duration = const Duration(milliseconds: 300),
     this.autoTextSize = false,
-  }) : super(key: key);
+  });
 
   /// Used for creating initials. (Regex split by r'\s+\/')
   final String? name;

@@ -2,10 +2,10 @@ part of 'advanced_avatar.dart';
 
 class AdvancedAvatarInherited extends InheritedWidget {
   const AdvancedAvatarInherited({
-    Key? key,
-    required Widget child,
+    super.key,
+    required super.child,
     required this.radius,
-  }) : super(key: key, child: child);
+  });
 
   final double radius;
 

@@ -1,6 +1,6 @@
 name: flutter_advanced_avatar
 description: An advanced avatar provides a rich API for widget customization that opens a new look and feel in your app.
-version: 1.5.1
+version: 1.5.2
 homepage: https://github.com/alex-melnyk/flutter_advanced_avatar
 repository: https://github.com/alex-melnyk/flutter_advanced_avatar
 issue_tracker: https://github.com/alex-melnyk/flutter_advanced_avatar/issues
@@ -15,4 +15,4 @@ dependencies:
   characters: ^1.3.0
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
+  flutter_lints: ^5.0.0
