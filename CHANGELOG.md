@@ -1,3 +1,7 @@
+## 1.5.3
+
+* Update GitHub Actions workflow for automated publishing to pub.dev using OIDC authentication.
+
 ## 1.5.2
 
 * Increase safety on splitting empty `name` strings to abbreviation by [@MrLightful](https://github.com/MrLightful).
